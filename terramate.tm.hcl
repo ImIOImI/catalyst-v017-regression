@@ -7,8 +7,3 @@ terramate {
   }
 }
 
-scaffold {
-  package_sources = [
-    "github.com/ImIOImI/catalyst-v017-regression",
-  ]
-}
