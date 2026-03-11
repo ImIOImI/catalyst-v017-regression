@@ -9,6 +9,6 @@ terramate {
 
 scaffold {
   package_sources = [
-    "github.com/SumerSports/catalyst-v017-regression",
+    "github.com/ImIOImI/catalyst-v017-regression",
   ]
 }

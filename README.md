@@ -13,7 +13,7 @@ Both inputs are in `bundles/demo/bundle.tm.hcl`.
 **Requirements:** Catalyst v0.17.0-beta13
 
 ```bash
-git clone https://github.com/SumerSports/catalyst-v017-regression
+git clone https://github.com/ImIOImI/catalyst-v017-regression
 cd catalyst-v017-regression
 catalyst scaffold
 ```
