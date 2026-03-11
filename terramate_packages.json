@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Catalyst v0.17 Regression Repro",
+    "description": "Minimal reproduction for map(object) type regression in Catalyst v0.17.0-beta13",
+    "bundles": [
+      {
+        "class": "demo",
+        "name": "Demo Bundle",
+        "path": "/bundles/demo",
+        "version": "1.0.0"
+      }
+    ],
+    "components": []
+  }
+]
