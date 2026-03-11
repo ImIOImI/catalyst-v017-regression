@@ -9,7 +9,10 @@ define "bundle" {
   alias = "demo"
 
   # Pattern 1: map(object) with optional() attribute and nested map(object).
-  # Declared correctly. Valid in v0.16.0-beta12. Breaks in v0.17.0-beta13.
+  # Declared correctly. Valid in v0.16.0-beta12. Breaks in v0.17.0-beta13 with:
+  #   Error: failed to evaluate schema namespaces: failed to parse typestr
+  #   map(object({...})): syntax error at position <input>:1:12
+  # The new type parser does not understand inline object({...}) syntax.
   input "account_map" {
     description = "Map of AWS accounts"
     type = map(object({

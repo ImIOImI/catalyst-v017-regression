@@ -55,10 +55,28 @@ input "account_map" {
 }
 ```
 
-This type expression is valid HCL and was accepted by v0.16.0-beta12. Under
-v0.17.0-beta13 the new type parser does not handle `map(object({...}))` with
-`optional()` attribute modifiers or nested `map(object)` values. The default
-value is structurally correct — the error is in parsing the type expression itself.
+**Actual error output:**
+
+```
+Error: failed to evaluate schema namespaces: failed to parse typestr map(object({
+account_id = string
+name = string
+region = optional(string)
+clusters = map(object({
+oidc_provider = string
+region = string
+}))
+})): syntax error at position <input>:1:12
+```
+
+The error fires immediately when the bundle is loaded — before any user input.
+
+`failed to parse typestr` confirms that v0.17 serializes the `type = ...`
+expression to a string and runs it through a new parser. `syntax error at
+position <input>:1:12` points to the `{` in `map(object({` — the new parser
+does not understand inline `object({...})` syntax at all. The default value is
+structurally correct and irrelevant; the failure is purely in parsing the type
+expression.
 
 ### Error 2 — Default value validated strictly against type; produces malformed error message
 
